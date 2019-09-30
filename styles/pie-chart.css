@@ -1,0 +1,8 @@
+.pie-chart {
+  --size: 40em;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: #ddd;
+}

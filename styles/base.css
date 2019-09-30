@@ -1,0 +1,185 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  font-size: 1vw;
+  font-family: 'segoe ui', calibri, sans-serif;
+}
+
+.values-form,
+.chart-container {
+  flex: 0 50%;
+  height: 50%;
+}
+
+.values-form {
+  border-bottom: solid 1px #aaa;
+  display: flex;
+  flex-direction: column;
+  font-size: 3.5em;
+  width: 100%;
+}
+
+.values-form > div {
+  padding: 0 .5em;
+}
+
+.values-form .inputs {
+  flex: 1;
+  overflow: auto;
+}
+
+.values-form .buttons {
+  flex: 0 3em;
+}
+
+.values-form .inputs div {
+  display: flex;
+  margin: .5em 0;
+}
+
+.values-form input,
+.values-form button {
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.values-form .inputs div input {
+  height: 1.5em;
+}
+
+.values-form .inputs div input[type=number] {
+  flex: 1;
+}
+
+.values-form .inputs div input[type=color] {
+  flex: 0 3em;
+  padding: 0;
+}
+
+.values-form .inputs div button {
+  --color: #aaa;
+  flex: 0 1.5em;
+  height: 1.5em;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 50%;
+  text-indent: -100em;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.values-form .inputs div button:focus {
+  --color: #ccc;
+}
+
+.values-form .inputs div button::before,
+.values-form .inputs div button::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--color);
+  transition: background-color .1s linear;
+  top: 0;
+  left: 0;
+}
+
+.values-form .inputs div button::before {
+  transform: rotate(-45deg) scaleX(.15) scaleY(.7);
+}
+
+.values-form .inputs div button::after {
+  transform: rotate(45deg) scaleX(.15) scaleY(.7);
+}
+
+.values-form button.add {
+  --color: #aaa;
+  font-size: 85%;
+  padding: .3em 1.5em .3em 2.5em;
+  border-style: none;
+  border-radius: calc(1em * (.6 + .85));
+  background: var(--color) radial-gradient(circle at 1em 50%, #fff 0, #fff .6em, transparent .7em);
+  transition: background-color .1s linear;
+  color: #fff;
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.values-form button.add:focus {
+  --color: #ccc;
+}
+
+.values-form button.add::before,
+.values-form button.add::after {
+  content: '';
+  width: 2em;
+  height: 100%;
+  position: absolute;
+  background-color: var(--color);
+  transition: background-color .1s linear;
+  top: 0;
+  left: 0;
+}
+
+.values-form button.add::before {
+  transform: scaleX(.15) scaleY(.6);
+}
+
+.values-form button.add::after {
+  transform: rotate(90deg) scaleX(.15) scaleY(.6);
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70em;
+}
+
+.chart-container .pie-chart {
+  --size: 60em;
+  margin: 0 auto;
+}
+
+@media (min-height: 800px) {
+  .chart-container .pie-chart {
+    --size: 70em;
+  }
+}
+
+@media (min-height: 900px) {
+  .chart-container .pie-chart {
+    --size: 80em;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    flex-direction: row;
+    font-size: 1vh;
+    justify-content: space-around;
+  }
+
+  .values-form {
+    flex: 0 20em;
+    height: 100vh;
+    border-right: solid 1px #ddd;
+    font-size: 2em;
+  }
+
+  .chart-container {
+    flex: 1;
+  }
+}
